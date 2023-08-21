@@ -1,0 +1,20 @@
+{
+  "name": "passport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces":["packages/**"],
+  "scripts": {
+    "test": "npm run test --workspaces --if-present"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navec/passport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navec/passport/issues"
+  },
+  "homepage": "https://github.com/navec/passport#readme"
+}

@@ -10,7 +10,4 @@ app.use(express.json());
 // Routes
 app.use(userRouter);
 
-// Start
-app.listen(port, () =>
-  console.log(`Your application started on http://localhost:${port}`)
-);
+export default app;

@@ -6,14 +6,14 @@ const userToPublicUser = ({ userId, username, email, avatar }: User) => {
   return { userId, username, email, avatar };
 };
 
-export const loginUser = (email: string, password: string): PublicUser => {
+export const loginUser = (
+  email: string,
+  password: string
+): PublicUser | undefined => {
   const dbUser = USER_DATA[email];
 
   const isValidUser = dbUser && dbUser.password === password;
-  if (!isValidUser) {
-    throw new Error('Email or password is not correct');
-  }
-  return userToPublicUser(dbUser);
+  return isValidUser ? userToPublicUser(dbUser) : undefined;
 };
 
 export const getUserByEmail = (email: string): User | undefined => {

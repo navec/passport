@@ -28,13 +28,8 @@ describe('User entity', () => {
     });
 
     test('should throw error when password is wrong', () => {
-      const loginUserCb = () => loginUser('fake@email.com', 'wrong');
-      expect(loginUserCb).toThrow('Email or password is not correct');
-    });
-
-    test('should throw error when email and password are wrong', () => {
-      const loginUserCb = () => loginUser('other@email.com', 'wrong');
-      expect(loginUserCb).toThrow('Email or password is not correct');
+      const user = loginUser('fake@email.com', 'wrong');
+      expect(user).toBeUndefined();
     });
   });
 

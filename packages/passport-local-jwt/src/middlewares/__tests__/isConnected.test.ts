@@ -21,9 +21,7 @@ const getMockResponse = () => {
 
 const mockVerify = jest.fn();
 jest.mock('jsonwebtoken', () => ({
-  default: {
-    verify: (token: string, secret: string) => mockVerify(token, secret),
-  },
+  verify: (token: string, secret: string) => mockVerify(token, secret),
 }));
 
 const mockGetUserByEmail = jest.fn();
@@ -74,7 +72,6 @@ describe(`${isConnected.name} middleware`, () => {
 
     isConnected('secret')(req, res, next);
 
-    expect(next).toBeCalled();
     expect(req.user).toEqual({
       avatar: null,
       birthdate: '1992/10/20',
@@ -83,5 +80,6 @@ describe(`${isConnected.name} middleware`, () => {
       userId: '&',
       username: 'Prenom Nom',
     });
+    expect(next).toBeCalled();
   });
 });

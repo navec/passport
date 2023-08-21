@@ -8,8 +8,10 @@ const userRouter = express.Router();
 console.log(new Date(), '[Routes] UserRoute {}:');
 
 // Recupère les informations de l'utilisateur avec le token
-userRouter.post('/login', localAuthenticate({ secret }), (req, res) =>
-  res.send(req.user)
+userRouter.post(
+  '/login',
+  (req, res, next) => localAuthenticate({ secret, req, res, next }),
+  (req, res) => res.send(req.user)
 );
 console.log(new Date(), '[Routes] Mapped {/login, POST} route');
 
