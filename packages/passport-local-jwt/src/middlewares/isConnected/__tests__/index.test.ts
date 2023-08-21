@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { isConnected } from '../isConnected';
+import { isConnected } from '..';
 
 const USER = {
   avatar: null,
@@ -25,7 +25,7 @@ jest.mock('jsonwebtoken', () => ({
 }));
 
 const mockGetUserByEmail = jest.fn();
-jest.mock('../../entities/User', () => ({
+jest.mock('../../../entities/User', () => ({
   getUserByEmail: (email: string) => mockGetUserByEmail(email),
 }));
 
